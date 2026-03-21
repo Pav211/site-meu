@@ -1,0 +1,194 @@
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    position: relative;
+}
+
+.menu-item {
+    position: relative;
+}
+
+.menu-item > a {
+    font-size: 18px;
+    color: #222;
+    text-decoration: none;
+    padding: 10px;
+    display: inline-block;
+    transition: 0.2s;
+}
+
+.menu-item > a:hover {
+    color: #000;
+    opacity: 0.7;
+}
+
+.dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    padding: 15px 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+
+    opacity: 0;
+    transform: translateY(15px);
+    pointer-events: none;
+
+    transition: 0.25s ease;
+    min-width: 160px;
+}
+
+.dropdown p {
+    margin: 8px 0;
+    font-size: 15px;
+    color: #333;
+}
+
+.menu-item:hover .dropdown {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.carousel {
+    width: 90%;
+    max-width: 1300px;
+    margin: 40px auto;
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.slide {
+    display: none;
+    position: relative;
+}
+
+.slide.active {
+    display: block;
+}
+
+.slide img {
+    width: 100%;
+    height: 550px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+/* TEXT CAPTION */
+.caption {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%) translateY(40px);
+    color: white;
+    font-size: 32px;
+    font-weight: 700;
+    opacity: 0;
+
+    animation: slideUp 0.7s ease forwards;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateX(-50%) translateY(40px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+    }
+    
+}
+/* FUNDALUL POPUP-ULUI (ascuns la început) */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.45);
+    display: none;             /* ASCUNS */
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+}
+
+/* CUTIA POP-UP */
+.popup-box {
+    width: 380px;
+    background: #fff;
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+    animation: showPopup 0.3s ease;
+    position: relative;
+}
+
+/* ANIMAȚIA */
+@keyframes showPopup {
+    from { transform: scale(0.7); opacity: 0; }
+    to   { transform: scale(1); opacity: 1; }
+}
+
+/* BUTON ÎNCHIDERE */
+.close {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    font-size: 30px;
+    cursor: pointer;
+    color: #111;
+}
+
+/* IMAGINE PRODUS */
+.popup-left img {
+    width: 130px;
+    border-radius: 15px;
+    object-fit: cover;
+}
+
+/* TEXT + DETALII PRODUS */
+.popup-right h2 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+}
+
+.price {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.option {
+    margin-bottom: 10px;
+}
+
+.sizes button,
+.order-btn {
+    padding: 7px 15px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+}
+
+/* BUTON CUMPĂRĂ */
+.order-btn {
+    background: #111;
+    color: white;
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 1rem;
+}
+
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}

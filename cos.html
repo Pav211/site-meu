@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <title>Coșul tău</title>
+  <link rel="stylesheet" href="cos.css">
+</head>
+<body>
+
+<header class="cart-page-header">
+  <a href="index.html" class="back">← Înapoi</a>
+  <h1>👜 Coșul tău</h1>
+</header>
+
+<div class="cart-page">
+  <div id="cartItems"></div>
+
+  <div class="cart-summary">
+    <span>Total:</span>
+    <strong id="totalPrice">0 MDL</strong>
+    <button>Finalizează comanda</button>
+  </div>
+</div>
+
+<script src="cart.js"></script>
+<script>
+const cartItems = document.getElementById("cartItems");
+const totalPrice = document.getElementById("totalPrice");
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let total = 0;
+
+cart.forEach(item => {
+  total += item.price;
+  cartItems.innerHTML += `
+    <div class="cart-item">
+      <img src="${item.image}">
+      <div>
+        <h4>${item.name}</h4>
+        <span>${item.price} MDL</span>
+      </div>
+    </div>
+  `;
+});
+
+totalPrice.innerText = total + " MDL";
+</script>
+
+</body>
+</html>
